@@ -1,0 +1,5 @@
+---
+  announcer: Stdout
+  consumers:
+    - Github
+    - Heroku
