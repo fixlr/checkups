@@ -8,8 +8,8 @@ class StatusAnnouncer
   # Skip unimportant announcements
   def skippable?(status)
     last_status = last_status_for_consumer(status)
-    return true if status.green? && (last_status.nil? || last_status.green?)
-    false
+    return true if status.green? && last_status.nil?
+    status == last_status
   end
 
   def last_status_for_consumer(status)
