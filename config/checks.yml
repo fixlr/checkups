@@ -1,5 +1,5 @@
 ---
-  announcer: Stdout
+  announcer: Hipchat
   consumers:
     - Github
     - Heroku
