@@ -1,1 +1,1 @@
-clock: bundle exec clockwork bin/status_daemon
+daemon: bundle exec ruby bin/status_daemon

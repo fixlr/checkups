@@ -20,9 +20,9 @@ require 'open-uri'
 require 'pathname'
 
 require 'bundler'
-Bundler.require(:default, ENV['STATUS_CHECK_ENV'] || :development)
-require 'status_check/environment'
+Bundler.require(:default, StatusCheck.env)
 
+require 'status_check/environment'
 require 'status_check/config'
 require 'status_check/runner'
 

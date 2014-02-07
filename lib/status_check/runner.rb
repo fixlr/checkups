@@ -1,16 +1,44 @@
 module StatusCheck
   class Runner
-    def self.config
-      Config.load(StatusCheck.root.join('config/checks.yml'))
+    attr_reader :announcer, :scheduler
+
+    CONFIG_PATH = StatusCheck.root.join('config/checks.yml')
+
+    def self.run(scheduler)
+      new(scheduler).run
     end
 
-    def self.run
-      announcer = config.announcer.new
+    def initialize(scheduler)
+      @announcer = config.announcer.new
+      @scheduler = scheduler
+    end
 
-      config.consumers.each do |consumer|
+    def run
+      schedule_consumers
+      scheduler.join
+    end
+
+    private
+
+    def schedule_consumers
+      consumers.each do |consumer|
+        schedule_status_check(consumer)
+      end
+    end
+
+    def schedule_status_check(consumer)
+      scheduler.every '1m' do
         status = consumer.new.consume
         announcer.attempt_announcement(status)
       end
+    end
+
+    def config
+      @config ||= Config.load(CONFIG_PATH)
+    end
+
+    def consumers
+      config.consumers
     end
   end
 end

@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 ruby '2.1.0'
 
-gem 'clockwork', require: false
 gem 'dalli'
 gem 'hipchat-api'
+gem 'rufus-scheduler', require: false
 
 group :development, :test do
   gem 'dotenv'
