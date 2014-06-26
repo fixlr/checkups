@@ -10,6 +10,6 @@ class HerokuStatus < Status
   end
 
   def latest_update
-    updates.first['contents']
+    updates.first.fetch('contents', '').gsub(/(?:\n\r?|\r\n?)/, '<br>')
   end
 end
