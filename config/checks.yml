@@ -3,3 +3,4 @@
   consumers:
     - Github
     - Heroku
+    - Keen
