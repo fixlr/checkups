@@ -14,11 +14,11 @@ module StatusCheck
     private
 
     def get_announcer(name)
-      Object.const_get("#{name.strip}Announcer")
+      StatusCheck::Announcers.const_get("#{name.strip}Announcer")
     end
 
     def get_consumers(names)
-      names.split(',').map {|name| Object.const_get("#{name.strip}Consumer") }
+      names.split(',').map {|name| StatusCheck::Consumers.const_get("#{name.strip}Consumer") }
     end
   end
 end
