@@ -1,1 +1,1 @@
-daemon: bundle exec ruby bin/status_daemon
+daemon: bundle exec bin/status_daemon
