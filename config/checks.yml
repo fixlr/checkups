@@ -1,6 +1,0 @@
----
-  announcer: Hipchat
-  consumers:
-    - Github
-    - Heroku
-    - Keen

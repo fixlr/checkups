@@ -2,23 +2,23 @@ module StatusCheck
   class Config
     attr_reader :announcer, :consumers
 
-    def self.load(path)
-      new(YAML.load_file(path))
+    def self.load(opts = ENV)
+      new(opts)
     end
 
     def initialize(opts = {})
-      @announcer = get_announcer(opts['announcer'])
-      @consumers = get_consumers(opts['consumers'])
+      @announcer = get_announcer(opts.fetch('ANNOUNCER', 'Stdout'))
+      @consumers = get_consumers(opts.fetch('CONSUMERS', ''))
     end
 
     private
 
     def get_announcer(name)
-      Object.const_get("#{name}Announcer")
+      Object.const_get("#{name.strip}Announcer")
     end
 
     def get_consumers(names)
-      names.map {|name| Object.const_get("#{name}Consumer") }
+      names.split(',').map {|name| Object.const_get("#{name.strip}Consumer") }
     end
   end
 end

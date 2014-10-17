@@ -2,8 +2,6 @@ module StatusCheck
   class Runner
     attr_reader :announcer, :scheduler
 
-    CONFIG_PATH = StatusCheck.root.join('config/checks.yml')
-
     def self.run(scheduler)
       new(scheduler).run
     end
@@ -34,7 +32,7 @@ module StatusCheck
     end
 
     def config
-      @config ||= Config.load(CONFIG_PATH)
+      @config ||= Config.load
     end
 
     def consumers
@@ -42,4 +40,3 @@ module StatusCheck
     end
   end
 end
-
