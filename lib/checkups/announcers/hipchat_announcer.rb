@@ -1,4 +1,4 @@
-module StatusCheck
+module Checkups
   module Announcers
     class HipchatAnnouncer < StatusAnnouncer
       def announce(status)

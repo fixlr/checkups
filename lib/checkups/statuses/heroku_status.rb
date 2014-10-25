@@ -1,4 +1,4 @@
-module StatusCheck
+module Checkups
   module Statuses
     class HerokuStatus < Status
       SENDER = 'Heroku Status'

@@ -1,4 +1,4 @@
-module StatusCheck
+module Checkups
   module Statuses
     class StatusPageStatus < Status
       STATUS_COLORS = {

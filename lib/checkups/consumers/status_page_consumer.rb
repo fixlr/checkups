@@ -1,4 +1,4 @@
-module StatusCheck
+module Checkups
   module Consumers
     class StatusPageConsumer < StatusConsumer
       def consume

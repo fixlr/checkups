@@ -1,4 +1,4 @@
-module StatusCheck
+module Checkups
   class Config
     attr_reader :announcer, :consumers
 
@@ -14,11 +14,11 @@ module StatusCheck
     private
 
     def get_announcer(name)
-      StatusCheck::Announcers.const_get("#{name.strip}Announcer")
+      Checkups::Announcers.const_get("#{name.strip}Announcer")
     end
 
     def get_consumers(names)
-      names.split(',').map {|name| StatusCheck::Consumers.const_get("#{name.strip}Consumer") }
+      names.split(',').map {|name| Checkups::Consumers.const_get("#{name.strip}Consumer") }
     end
   end
 end

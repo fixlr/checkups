@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require_relative '../lib/status_check'
+require_relative '../lib/checkups'
 require 'rufus-scheduler'
-StatusCheck::Runner.run(Rufus::Scheduler.new)
+Checkups::Runner.run(Rufus::Scheduler.new)

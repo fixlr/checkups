@@ -1,4 +1,4 @@
-module StatusCheck
+module Checkups
   module Announcers
     class StdoutAnnouncer < StatusAnnouncer
       def announce(status)

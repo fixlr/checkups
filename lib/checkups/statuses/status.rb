@@ -1,4 +1,4 @@
-module StatusCheck
+module Checkups
   module Statuses
     class Status < OpenStruct
       include Comparable

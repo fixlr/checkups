@@ -1,4 +1,4 @@
-module StatusCheck
+module Checkups
   class Runner
     attr_reader :announcer, :scheduler
 
@@ -20,11 +20,11 @@ module StatusCheck
 
     def schedule_consumers
       consumers.each do |consumer|
-        schedule_status_check(consumer)
+        schedule_checkup(consumer)
       end
     end
 
-    def schedule_status_check(consumer)
+    def schedule_checkup(consumer)
       scheduler.every '1m' do
         status = consumer.new.consume
         announcer.attempt_announcement(status)

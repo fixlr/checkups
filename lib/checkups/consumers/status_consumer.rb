@@ -1,4 +1,4 @@
-module StatusCheck
+module Checkups
   module Consumers
     class StatusConsumer
       def cache_key
@@ -13,7 +13,7 @@ module StatusCheck
 
       def status_class
         klass = self.class.name.split('::').last.gsub(/Consumer$/, 'Status')
-        StatusCheck::Statuses.const_get(klass)
+        Checkups::Statuses.const_get(klass)
       end
     end
   end

@@ -1,4 +1,4 @@
-module StatusCheck
+module Checkups
   module Announcers
     class StatusAnnouncer
       def attempt_announcement(status)
@@ -27,7 +27,7 @@ module StatusCheck
       end
 
       def cache
-        StatusCheck.cache
+        Checkups.cache
       end
     end
   end
