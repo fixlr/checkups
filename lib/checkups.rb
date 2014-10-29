@@ -16,6 +16,7 @@ end
 
 require 'forwardable'
 require 'json'
+require 'logger'
 require 'open-uri'
 require 'pathname'
 

@@ -18,16 +18,18 @@ module Checkups
 
     private
 
-    def schedule_consumers
-      consumers.each do |consumer|
-        schedule_checkup(consumer)
-      end
+    def checkup(consumer)
+      status = consumer.new.consume
+      announcer.attempt_announcement(status)
+    rescue => err
+      logger.error("#{err.class}: #{err.message}")
     end
 
-    def schedule_checkup(consumer)
-      scheduler.every '1m' do
-        status = consumer.new.consume
-        announcer.attempt_announcement(status)
+    def schedule_consumers
+      consumers.each do |consumer|
+        scheduler.every '1m' do
+          checkup(consumer)
+        end
       end
     end
 
@@ -37,6 +39,10 @@ module Checkups
 
     def consumers
       config.consumers
+    end
+
+    def logger
+      @logger ||= ::Logger.new(STDOUT)
     end
   end
 end
