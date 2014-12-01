@@ -1,7 +1,7 @@
 module Checkups
   module Statuses
     class TddiumStatus < StatusPageStatus
-      SENDER = 'Tddium Status'
+      SENDER = 'Tddium'
     end
   end
 end

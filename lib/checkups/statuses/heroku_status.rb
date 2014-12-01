@@ -1,7 +1,7 @@
 module Checkups
   module Statuses
     class HerokuStatus < Status
-      SENDER = 'Heroku Status'
+      SENDER = 'Heroku'
 
       def body
         [title, latest_update].join(': ')

@@ -1,7 +1,7 @@
 module Checkups
   module Statuses
     class KeenStatus < StatusPageStatus
-      SENDER = 'Keen.io Status'
+      SENDER = 'Keen.io'
     end
   end
 end

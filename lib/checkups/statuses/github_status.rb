@@ -1,7 +1,7 @@
 module Checkups
   module Statuses
     class GithubStatus < Status
-      SENDER = 'GitHub Status'
+      SENDER = 'GitHub'
 
       STATUS_COLORS = {
         'major' => 'red',

@@ -1,7 +1,7 @@
 module Checkups
   module Statuses
     class DnsimpleStatus < StatusPageStatus
-      SENDER = 'DNSimple Status'
+      SENDER = 'DNSimple'
     end
   end
 end
