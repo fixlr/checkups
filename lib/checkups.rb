@@ -26,21 +26,12 @@ Bundler.require(:default, Checkups.env)
 require 'checkups/environment'
 require 'checkups/config'
 require 'checkups/runner'
-
 require 'checkups/statuses/status'
 require 'checkups/statuses/status_page_status'
-require 'checkups/statuses/github_status'
-require 'checkups/statuses/heroku_status'
-require 'checkups/statuses/keen_status'
-require 'checkups/statuses/tddium_status'
-
 require 'checkups/consumers/status_consumer'
 require 'checkups/consumers/status_page_consumer'
-require 'checkups/consumers/github_consumer'
-require 'checkups/consumers/heroku_consumer'
-require 'checkups/consumers/keen_consumer'
-require 'checkups/consumers/tddium_consumer'
-
 require 'checkups/announcers/status_announcer'
-require 'checkups/announcers/hipchat_announcer'
-require 'checkups/announcers/stdout_announcer'
+
+Dir[File.dirname(__FILE__) + '/checkups/**/*.rb'].each do |file|
+  require file.gsub(/\.rb$/, '')
+end
