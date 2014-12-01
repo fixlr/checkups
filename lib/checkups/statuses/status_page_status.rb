@@ -2,6 +2,7 @@ module Checkups
   module Statuses
     class StatusPageStatus < Status
       STATUS_COLORS = {
+        'critical' => 'red',
         'major' => 'red',
         'minor' => 'yellow',
         'good' => 'green',
