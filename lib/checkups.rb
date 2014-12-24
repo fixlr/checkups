@@ -8,10 +8,6 @@ module Checkups
   def self.env
     ENV.fetch('CHECKUPS_ENV', 'development')
   end
-
-  def self.root
-    Pathname.new(File.expand_path(File.dirname(__FILE__) + '/..'))
-  end
 end
 
 require 'forwardable'
