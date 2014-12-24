@@ -29,5 +29,5 @@ require 'checkups/consumers/status_page_consumer'
 require 'checkups/announcers/status_announcer'
 
 Dir[File.dirname(__FILE__) + '/checkups/**/*.rb'].each do |file|
-  require file.gsub(/\.rb$/, '')
+  require file
 end
