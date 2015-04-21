@@ -25,9 +25,11 @@ Configured by setting the `ANNOUNCER` environment variable.
 Configured by setting the `CONSUMERS` environment variable. This should be a
 comma-separated list of status consumers.
 
+* **DNSimple**
 * **Github**
 * **Heroku**
 * **Keen**
+* **RedisToGo**
 * **Tddium**
 
 ## Deploying
