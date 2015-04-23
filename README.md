@@ -11,7 +11,11 @@ Check status APIs and notify someone when changes occur.
 
 ### Announcers
 
-Configured by setting the `ANNOUNCER` environment variable.
+Configured by setting the `ANNOUNCER` environment variable. Announcers are
+responsible for receiving a new status object and sending a notification when
+there has been a change.
+
+Announcers take no arguments to initialize and should respond to `announce`.
 
 * **Stdout** (default): logs all messages to STDOUT
 
@@ -23,14 +27,29 @@ Configured by setting the `ANNOUNCER` environment variable.
 ### Consumers
 
 Configured by setting the `CONSUMERS` environment variable. This should be a
-comma-separated list of status consumers.
+comma-separated list of status consumers. Consumers are responsible for
+creating a new status object from a third-party status API.
+
+Consumers take no arguments to initialize and should respond to `consume`.
 
 * **DNSimple**
 * **Github**
 * **Heroku**
+* **HipChat**
 * **Keen**
 * **RedisToGo**
 * **Tddium**
+
+### Statuses
+
+Statuses are the announceable representation of a Consumer's response data.
+They should be initialized with the data for a single status event.
+
+All statuses should define:
+
+* `sender`: name of the sender, defaults to `SENDER` constant
+* `color`: represents the severity of the event (green, yellow, red, etc)
+* `body`: full text that will be sent by the announcer
 
 ## Deploying
 
