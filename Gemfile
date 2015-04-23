@@ -3,6 +3,7 @@ ruby '2.1.5'
 
 gem 'dalli'
 gem 'hipchat-api'
+gem 'rake'
 gem 'rufus-scheduler', require: false
 
 group :development, :test do
