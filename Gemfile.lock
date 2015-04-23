@@ -2,7 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     atomic (1.1.14)
-    dalli (2.7.2)
+    dalli (2.7.4)
     dotenv (2.0.1)
     hipchat-api (1.0.5)
       httparty
