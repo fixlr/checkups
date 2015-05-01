@@ -14,7 +14,6 @@ require 'forwardable'
 require 'json'
 require 'logger'
 require 'open-uri'
-require 'pathname'
 
 require 'bundler'
 Bundler.require(:default, Checkups.env)
