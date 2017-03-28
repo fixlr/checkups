@@ -2,7 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     dalli (2.7.6)
-    dotenv (2.0.1)
+    dotenv (2.2.0)
     et-orbi (1.0.2)
       tzinfo
     hipchat-api (1.0.6)
