@@ -12,6 +12,7 @@ module Checkups
     end
 
     def run
+      trap_signals
       schedule_consumers
       scheduler.join
     end
@@ -43,6 +44,17 @@ module Checkups
 
     def logger
       @logger ||= ::Logger.new(STDOUT)
+    end
+
+    def trap_signals
+      trap('INT') { shutdown }
+      trap('TERM') { shutdown }
+    end
+
+    def shutdown
+      scheduler.shutdown(:kill)
+      puts 'Shutting down...'
+      exit
     end
   end
 end
