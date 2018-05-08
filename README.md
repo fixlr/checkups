@@ -39,6 +39,7 @@ Consumers take no arguments to initialize and should respond to `consume`.
 * **Keen**
 * **RedisToGo**
 * **Tddium**
+* **Trello**
 
 ### Statuses
 
